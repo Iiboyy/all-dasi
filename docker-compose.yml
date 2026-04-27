@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./dasi-backend
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./dasi-backend/.env
+    volumes:
+      - uploads:/app/uploads
+
+  frontend-user:
+    build: ./dasi-frontend/user
+    ports:
+      - "5707:80"
+
+  frontend-admin:
+    build: ./dasi-frontend/admin
+    ports:
+      - "5709:80"
+
+volumes:
+  uploads:
